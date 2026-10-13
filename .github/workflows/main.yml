@@ -1,1 +1,25 @@
 
+```yaml
+name: Executar Robo de Pesquisa
+
+on:
+  workflow_dispatch:
+
+jobs:
+  pesquisar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Executar robo
+        run: python Robo.py
+        env:
+          SITE: https://example.com
+```
